@@ -39,6 +39,12 @@ function App() {
       console.log(err)
     }
   }
+  const handleCopy = () => {
+    var copyText = document.getElementById("dataImage");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+  }
   const renderImage = () => {
     return (
       <div style={{ display: "flex", flexFlow: "column" }}>
@@ -86,6 +92,9 @@ function App() {
         </button>
         <button style={{ margin: ".25rem" }} onClick={handleRandomImage}>
           Random
+        </button>
+        <button style={{ margin: ".25rem" }} onClick={handleCopy}>
+          Copy to clipboard
         </button>
       </div>
       <div
